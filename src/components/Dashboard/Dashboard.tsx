@@ -4,13 +4,17 @@ import WorkSpace from "./WorkSpace";
 import './style.css';
 import AddBook from "./AddBook";
 
-function Dashboard(props:any) {
-    return(
-      <div id = {'dashboard'}>
-          <Sections/>
-          <WorkSpace/>
-          <AddBook username = {props.username}/>
-      </div>
+interface Dashboard {
+    isAuth: boolean,
+    setModal: { (): void }
+}
+
+function Dashboard(props: Dashboard) {
+    return (
+        <div id={'dashboard'}>
+            <Sections isAuth={props.isAuth} setModal = {props.setModal}/>
+            <WorkSpace/>
+        </div>
     );
 }
 

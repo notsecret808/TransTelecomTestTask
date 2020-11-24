@@ -1,6 +1,8 @@
 #sidebar {
     height: 100%;
-    width: 30%;
+    width: 20%;
+    background-color: rgb(137, 245, 223);
+    border-right: 1px solid black;
 }
 
 #workflow {
@@ -10,13 +12,16 @@
 
 #dashboard {
     display: flex;
+    height: 100vh;
+    width: 100%;
 }
 
 #add-book {
-    position: fixed;
-    left: 0 ; right: 0; bottom: 0;
-    margin: 0 auto;
-    width: 100px;
+    background-color: #6574cd;
+    /*position: relative;*/
+    /*left: 0 ; right: 0; bottom: 0;*/
+    /*margin: 0 auto;*/
+    /*width: 100px;*/
 }
 
 #add-book-title {
@@ -28,5 +33,61 @@
 }
 
 .hide {
-    display: none;
+    display: none !important;
+}
+
+.sidebar-first {
+    border-top: 0 !important;
+}
+
+.sidebar-item {
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+    border-collapse: collapse;
+    background-color: rgba(246, 107, 107, 0.7);
+    border-top: 1px black solid;
+    border-bottom: 1px black solid;
+    width: 100%;
+    margin-bottom: 1rem;
+    box-sizing: border-box;
+}
+
+.add-book-inputs {
+    display: flex;
+}
+
+.add-book-input-field {
+    width: 100%;
+    padding: 2rem;
+    margin-top: 1rem;
+    margin-right: 1rem;
+}
+
+.add-book-inputs {
+    display: flex;
+    justify-content: center;
+}
+
+.add-book-file-upload {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.add-book-textarea-field {
+    width: 100%;
+    padding: 2rem;
+    margin-top: 1rem;
+    margin-right: 1rem;
+}
+
+.add-book-input-field {
+    width: 100%;
+    margin-top: 1rem;
+    margin-right: 1rem;
+}
+
+.add-book-file-upload-field {
+    text-align: center;
 }
