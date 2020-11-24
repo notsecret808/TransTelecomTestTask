@@ -2,7 +2,8 @@ import React, {useState} from 'react';
 
 interface AddBook {
     isAuth: boolean,
-    setModal: { (): void }
+    setModal: { (isHidden: boolean, type: string, payload: string): void }
+    sections: string
 }
 
 function AddBook(props: AddBook) {
@@ -15,8 +16,8 @@ function AddBook(props: AddBook) {
         );
     } else {
         return (
-            <div id = {'add-book'} className={'sidebar-item '} onClick={() => {
-                props.setModal();
+            <div id={'add-book'} className={'sidebar-item '} onClick={() => {
+                props.setModal(false, 'addBook', props.sections);
             }}>
                 Add Book
             </div>

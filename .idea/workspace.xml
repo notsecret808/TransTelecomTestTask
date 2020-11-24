@@ -19,25 +19,76 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="90dc8d8a-1fd1-441b-b666-89c66cdf0d3d" name="Default Changelist" comment="refactor: authentication changed&#10;feature: new endpoints added">
-      <change afterPath="$PROJECT_DIR$/client/src/components/Dashboard/ModalAddBook.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/Dashboard/SidebarItem.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/Modal.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/ModalTemplate/ModalTemplate.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/ModalTemplate/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/types/auth.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/types/modalPayload.ts" afterDir="false" />
+    <list default="true" id="90dc8d8a-1fd1-441b-b666-89c66cdf0d3d" name="Default Changelist" comment="feature: sidebar added">
+      <change beforePath="$PROJECT_DIR$/.idea/TransTelecomTestTask.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-24T013401.500.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-24T013418.500.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-24T013458.500.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-24T013613.500.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-24T013824.500.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-24T013920.500.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-24T014032.500.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-24T014051.201.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-24T014102.201.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-24T014119.201.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-24T014128.201.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-24T014519.500.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-24T014533.500.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-24T014556.201.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-24T014609.201.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-24T014635.201.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-24T104015.500.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-24T104141.500.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-24T104411.500.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-24T104433.500.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-24T104732.201.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-24T104834.500.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-24T104905.500.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-24T104930.201.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-24T105022.201.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-24T105148.201.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-24T105212.201.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-24T105229.201.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-24T105338.201.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-24T105524.201.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-24T105550.500.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-24T105606.201.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-24T105627.201.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-24T105858.201.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-24T105911.500.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-24T110300.500.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-24T110905.500.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-24T111615.201.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-24T111749.201.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-24T111900.201.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-24T111926.201.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-24T112056.500.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-24T112542.201.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-24T112551.201.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-24T112602.201.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-24T112636.201.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-24T113418.405.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-24T113658.201.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-24T114432.201.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-24T114445.500.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/http-client.cookies" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/App.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/AppStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/AppStyle.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Dashboard/AddBook.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Dashboard/AddBook.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/Dashboard/AddBook.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Dashboard/AddBook/AddBook.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/Dashboard/Dashboard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Dashboard/Dashboard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/Dashboard/ModalAddBook.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Dashboard/AddBook/ModalAddBook.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/Dashboard/Sections.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Dashboard/Sections.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/Dashboard/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Dashboard/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Header/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Header/Header.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/Header/Login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Header/Login.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Header/Modal.tsx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/Header/SignUp.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Header/SignUp.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Header/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Header/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/Modal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Modal.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/types/modalPayload.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/types/modalPayload.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +109,13 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="dev" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/client" />
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -197,14 +254,15 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../TransTelecomTestOld" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/client/node_modules/typescript/lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/client/src/components/Dashboard/AddBook" />
       <recent name="$PROJECT_DIR$/client/src/components/Dashboard" />
       <recent name="$PROJECT_DIR$/client/src/components" />
-      <recent name="$PROJECT_DIR$/client/src/components/Dashboard/AddBook" />
       <recent name="$PROJECT_DIR$/client/src/components/Header" />
       <recent name="$PROJECT_DIR$/client/src/components/Modal" />
     </key>
@@ -757,7 +815,7 @@
       <updated>1606041476518</updated>
       <workItem from="1606041480189" duration="39865000" />
       <workItem from="1606137898491" duration="23014000" />
-      <workItem from="1606165139887" duration="39724000" />
+      <workItem from="1606165139887" duration="59122000" />
     </task>
     <task id="LOCAL-00001" summary="feature: client part of SPA using CRA added &#10;feature: basic authentication created">
       <created>1606085402387</created>
@@ -773,7 +831,14 @@
       <option name="project" value="LOCAL" />
       <updated>1606211643336</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="feature: sidebar added">
+      <created>1606237960056</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1606237960056</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -795,7 +860,8 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="feature: client part of SPA using CRA added &#10;feature: basic authentication created" />
     <MESSAGE value="refactor: authentication changed&#10;feature: new endpoints added" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor: authentication changed&#10;feature: new endpoints added" />
+    <MESSAGE value="feature: sidebar added" />
+    <option name="LAST_COMMIT_MESSAGE" value="feature: sidebar added" />
   </component>
   <component name="WindowStateProjectService">
     <state x="456" y="276" width="444" height="250" key="#Composer" timestamp="1606041501973">
@@ -834,14 +900,18 @@
       <screen x="0" y="27" width="1366" height="741" />
     </state>
     <state width="1320" height="522" key="GridCell.Tab.0.right/0.27.1366.741@0.27.1366.741" timestamp="1606216216422" />
-    <state x="278" y="129" width="800" height="543" key="Vcs.Push.Dialog.v2" timestamp="1606211666867">
+    <state x="172" y="31" width="1022" height="737" key="SettingsEditor" timestamp="1606238080396">
       <screen x="0" y="27" width="1366" height="741" />
     </state>
-    <state x="278" y="129" width="800" height="543" key="Vcs.Push.Dialog.v2/0.27.1366.741@0.27.1366.741" timestamp="1606211666867" />
-    <state x="100" y="127" width="1166" height="541" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1606138264867">
+    <state x="172" y="31" width="1022" height="737" key="SettingsEditor/0.27.1366.741@0.27.1366.741" timestamp="1606238080396" />
+    <state x="278" y="129" width="800" height="543" key="Vcs.Push.Dialog.v2" timestamp="1606238031879">
       <screen x="0" y="27" width="1366" height="741" />
     </state>
-    <state x="100" y="127" width="1166" height="541" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.27.1366.741@0.27.1366.741" timestamp="1606138264867" />
+    <state x="278" y="129" width="800" height="543" key="Vcs.Push.Dialog.v2/0.27.1366.741@0.27.1366.741" timestamp="1606238031879" />
+    <state x="100" y="127" width="1166" height="541" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1606238755281">
+      <screen x="0" y="27" width="1366" height="741" />
+    </state>
+    <state x="100" y="127" width="1166" height="541" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.27.1366.741@0.27.1366.741" timestamp="1606238755281" />
     <state x="347" y="174" key="run.anything.popup" timestamp="1606229578762">
       <screen x="0" y="27" width="1366" height="741" />
     </state>

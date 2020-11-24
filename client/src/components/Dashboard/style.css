@@ -91,3 +91,29 @@
 .add-book-file-upload-field {
     text-align: center;
 }
+
+.add-book-button-forbidden {
+    color: white;
+    background-color: red;
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    border: 1px black solid;
+    padding: 2rem;
+    border-radius: 10px;
+}
+
+.add-book-wrapper {
+    height: 75vh;
+}
+
+.add-book-button-wrapper {
+    height: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.wrong {
+    border: 1px red solid !important;
+}

@@ -2,17 +2,17 @@ import React from "react";
 import Sections from './Sections';
 import WorkSpace from "./WorkSpace";
 import './style.css';
-import AddBook from "./AddBook";
 
 interface Dashboard {
     isAuth: boolean,
-    setModal: { (): void }
+    setModal: { (isHidden: boolean, type: string, payload: string): void }
 }
 
 function Dashboard(props: Dashboard) {
     return (
         <div id={'dashboard'}>
-            <Sections isAuth={props.isAuth} setModal = {props.setModal}/>
+            <Sections isAuth={props.isAuth}
+                      setModal={(isHidden: boolean, type: string, payload: string) => props.setModal(isHidden, type, payload)}/>
             <WorkSpace/>
         </div>
     );

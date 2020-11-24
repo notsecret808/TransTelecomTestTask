@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import DOMAIN from "../../DOMAIN";
 import SidebarItem from "./SidebarItem";
-import AddBook from "./AddBook";
+import AddBook from "./AddBook/AddBook";
 
 function Sections(props: any) {
     const [sections, setSections] = useState();
@@ -20,7 +20,7 @@ function Sections(props: any) {
             for (let i = 0; i < result.data.length; i++) {
                 sections[i] = result.data[i].section_name;
             }
-            setSections(sections)
+            setSections(sections);
         })
     }, []);
     if (sections == undefined) {
@@ -36,7 +36,9 @@ function Sections(props: any) {
         return (
             <div id={'sidebar'}>
                 {sidebarItems}
-                <AddBook isAuth={props.isAuth} setModal = {props.setModal}/>
+                <AddBook isAuth={props.isAuth}
+                         sections={sections}
+                         setModal={(isHidden: boolean, type: string, payload: string) => props.setModal(isHidden, type, payload)}/>
             </div>
         );
 

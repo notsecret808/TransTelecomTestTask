@@ -37,6 +37,7 @@ function signupUser(data: userData, setAlertMsg: any, hideModal: any, funcs: { (
                 isAuth: true
             });
             sessionStorage.setItem('name', data.name);
+            sessionStorage.setItem('email', data.email);
         }
         console.log(response);
         if (!response.ok) {

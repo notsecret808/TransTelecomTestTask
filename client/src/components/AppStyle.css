@@ -32,7 +32,7 @@ body {
     justify-content: center;
     align-content: center;
     border-radius: 4px;
-    padding: 0 0.5rem 1rem;
+    padding: 0 1rem 1rem;
 }
 
 .modal-wrapper {
@@ -83,17 +83,19 @@ body {
     padding: 8px;
     border: 1px solid gray;
 }
-.input-field {
-    margin: 3rem auto;
-    display: block;
-    width: 50%;
-    padding: 8px;
-    border: 1px solid gray;
-}
 
-.input-field {
-    margin: 3rem auto;
-    display: block;
-    width: 50%;
-    padding: 8px;
-}
+
+/*.input-field {*/
+/*    margin: 3rem auto;*/
+/*    display: block;*/
+/*    width: 50%;*/
+/*    padding: 8px;*/
+/*    border: 1px solid gray;*/
+/*}*/
+
+/*.input-field {*/
+/*    margin: 3rem auto;*/
+/*    display: block;*/
+/*    width: 50%;*/
+/*    padding: 8px;*/
+/*}*/

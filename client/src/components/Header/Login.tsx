@@ -41,6 +41,7 @@ function loginUser(data: userData, setAlertMsg: any, hideModal: any, setEmail: a
                 isAuth: true
             });
             sessionStorage.setItem('name', result.username);
+            sessionStorage.setItem('email', data.email);
             console.log(localStorage.getItem('name'));
             sessionStorage.setItem('token', result.access_token);
         }

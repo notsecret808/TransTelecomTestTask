@@ -1,6 +1,7 @@
 type modalPayload = {
     isHidden: boolean,
-    payload: string
+    type: string,
+    payload: any
 }
 
 export default modalPayload;
