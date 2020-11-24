@@ -1,10 +1,11 @@
 import React, {useState} from 'react';
 import DOMAIN from "../../DOMAIN";
+import auth from "../types/auth";
 
 interface Login {
     setType: { (type: string): void },
     hideModal: { (): void },
-    setUsername: { (username: string): void }
+    setAuth: { (username: auth): void }
 }
 
 interface userData {
@@ -13,8 +14,8 @@ interface userData {
     remember_me: boolean
 }
 
-function loginUser(data: userData, setIsOk: any, setAlertMsg: any, hideModal: any, setEmail: any, setPassword: any,
-                   setUsername: { (username: string): void }) {
+function loginUser(data: userData, setAlertMsg: any, hideModal: any, setEmail: any, setPassword: any,
+                   setAuth: { (auth: auth): void }) {
     fetch(DOMAIN + '/api/auth/login', {
         method: 'POST',
         mode: 'cors',
@@ -34,7 +35,15 @@ function loginUser(data: userData, setIsOk: any, setAlertMsg: any, hideModal: an
         }
         return response.json();
     }).then(result => {
-        setUsername(result.username);
+        if (result.username != undefined) {
+            setAuth({
+                name: result.username,
+                isAuth: true
+            });
+            sessionStorage.setItem('name', result.username);
+            console.log(localStorage.getItem('name'));
+            sessionStorage.setItem('token', result.access_token);
+        }
     });
 }
 
@@ -44,53 +53,43 @@ function Login(props: Login) {
     const [password, setPassword] = useState('');
     const [rememberMe, setRememberMe] = useState(false);
     const [alertMsg, setAlertMsg] = useState('');
-    const [isOk, setIsOk] = useState('');
     return (
-        <div className={'modal'}>
-            <div className={'modal-wrapper'}>
-                <div className={'modal-header'}>
-                    <div onClick={() => {
-                        props.hideModal();
-                        setEmail('');
-                        setPassword('');
-                    }} className="modal-checkbox-item">X
-                    </div>
+        <div>
+            <div className={'inputs'}>
+                <div className="alert-msg-wrapper">
+                    <p className={'alert-msg'}>{alertMsg}</p>
                 </div>
-                <div className={'inputs'}>
-                    <div className="alert-msg-wrapper">
-                        <p className={'alert-msg'}>{alertMsg}</p>
-                    </div>
-                    <form action="">
-                        <input onChange={(event) => {
-                            setEmail(event.target.value);
-                        }} className="input-field" type="email" placeholder="E-Mail" value={email}/>
-                        <input onChange={(event) => {
-                            setPassword(event.target.value);
-                        }} className="input-field" type="password" placeholder="Password" value={password}/>
-                    </form>
+                <form action="">
+                    <input onChange={(event) => {
+                        setEmail(event.target.value);
+                    }} className ="input-field" type="email" placeholder="E-Mail" value={email}/>
+                    <input onChange={(event) => {
+                        setPassword(event.target.value);
+                    }} className="input-field" type="password" placeholder="Password" value={password}/>
+                </form>
 
-                </div>
+            </div>
 
-                <div className={'button-wrapper'}>
-                    <div className="button" onClick={() => {
-                        let data: userData = {
-                            email: email,
-                            password: password,
-                            remember_me: rememberMe,
-                        };
-                        loginUser(data, setIsOk, setAlertMsg, props.hideModal, setEmail, setPassword, props.setUsername);
-                    }}>Submit
-                    </div>
-                </div>
-                <p className={'modal-link'} onClick={() => {
-                    props.setType('signup');
-                }}>SIGNUP</p>
-                <div className={'modal-checkbox'}>
-                    Remember me? <input onClick={() => setRememberMe(!rememberMe)} type="checkbox"/>
+            <div className={'button-wrapper'}>
+                <div className="button" onClick={() => {
+                    let data: userData = {
+                        email: email,
+                        password: password,
+                        remember_me: rememberMe,
+                    };
+                    loginUser(data, setAlertMsg, props.hideModal, setEmail, setPassword, props.setAuth);
+                }}>Submit
                 </div>
             </div>
-            {/*<div className="close">+</div>*/}
-        </div>);
+            <p className={'modal-link'} onClick={() => {
+                props.setType('signup');
+            }}>SIGNUP</p>
+            {/*<div className={'modal-checkbox'}>*/}
+            {/*    Remember me? <input onClick={() => setRememberMe(!rememberMe)} type="checkbox"/>*/}
+            {/*</div>*/}
+        </div>
+    );
 }
+
 
 export default Login;

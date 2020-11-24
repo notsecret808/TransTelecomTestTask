@@ -1,10 +1,11 @@
 import React, {useState} from 'react';
 import DOMAIN from "../../DOMAIN";
+import auth from "../types/auth";
 
 interface SignUp {
     setType: { (type: string): void },
     hideModal: { (): void },
-    setUsername: { (username: string): void }
+    setAuth: { (username: auth): void }
 }
 
 interface userData {
@@ -14,8 +15,8 @@ interface userData {
     password_confirmation: string
 }
 
-function signupUser(data: userData, setIsOk: any, setAlertMsg: any, hideModal: any, funcs: { (value: string): void }[],
-                    setUsername: { (username: string): void }) {
+function signupUser(data: userData, setAlertMsg: any, hideModal: any, funcs: { (value: string): void }[],
+                    setAuth: { (auth: auth): void }) {
     fetch(DOMAIN + '/api/auth/signup', {
         method: 'POST',
         mode: 'cors',
@@ -31,7 +32,11 @@ function signupUser(data: userData, setIsOk: any, setAlertMsg: any, hideModal: a
                 func('');
             }
             hideModal();
-            setUsername(data.name);
+            setAuth({
+                name: data.name,
+                isAuth: true
+            });
+            sessionStorage.setItem('name', data.name);
         }
         console.log(response);
         if (!response.ok) {
@@ -50,56 +55,50 @@ function SignUp(props: SignUp) {
     const [alertMsg, setAlertMsg] = useState('');
     const [isOk, setIsOk] = useState('');
     return (
-        <div className={'modal'}>
-            <div className={'modal-wrapper'}>
-                <div className={'modal-header'}>
-                    <div onClick={() => props.hideModal()} className="modal-checkbox-item">X</div>
+        <div>
+            <div className={'inputs'}>
+                <div className="alert-msg-wrapper">
+                    <p className={'alert-msg'}>{alertMsg}</p>
                 </div>
-                <div className={'inputs'}>
-                    <div className="alert-msg-wrapper">
-                        <p className={'alert-msg'}>{alertMsg}</p>
-                    </div>
-                    <form action="">
-                        <input onChange={(event) => {
-                            setName(event.target.value);
-                        }} className="input-field" type="email" placeholder="Name" value={name}/>
-                        <input onChange={(event) => {
-                            setEmail(event.target.value);
-                        }} className="input-field" type="email" placeholder="E-Mail" value={email}/>
-                        <input onChange={(event) => {
-                            setPassword(event.target.value);
-                        }} className="input-field" type="password" placeholder="Password" value={password}/>
-                        <input onChange={(event) => {
-                            setPasswordConfirm(event.target.value);
-                        }} className="input-field" type="password" placeholder="Confirm password"
-                               value={passwordConfirm}/>
-                    </form>
-
-                </div>
-                <div className={'button-wrapper'}>
-                    <div className="button" onClick={() => {
-                        let data: userData = {
-                            name: name,
-                            email: email,
-                            password: password,
-                            password_confirmation: passwordConfirm
-                        };
-                        let funcs: { (value: string): void }[] = [setName, setEmail, setPassword, setPasswordConfirm]
-                        signupUser(data, setIsOk, setAlertMsg, props.hideModal, funcs, props.setUsername);
-                    }}>Submit
-                    </div>
-                </div>
-                <p className={'modal-link'} onClick={() => {
-                    props.setType('login');
-                }}>LOGIN</p>
-                <div className={'modal-checkbox-wrapper'}>
-                    <div className={'modal-checkbox'}>
-                        Remember me? <input onClick={() => setRememberMe(!rememberMe)} type="checkbox"/>
-                    </div>
-                </div>
+                <form action="">
+                    <input onChange={(event) => {
+                        setName(event.target.value);
+                    }} className="input-field" type="email" placeholder="Name" value={name}/>
+                    <input onChange={(event) => {
+                        setEmail(event.target.value);
+                    }} className="input-field" type="email" placeholder="E-Mail" value={email}/>
+                    <input onChange={(event) => {
+                        setPassword(event.target.value);
+                    }} className="input-field" type="password" placeholder="Password" value={password}/>
+                    <input onChange={(event) => {
+                        setPasswordConfirm(event.target.value);
+                    }} className="input-field" type="password" placeholder="Confirm password"
+                           value={passwordConfirm}/>
+                </form>
 
             </div>
-        </div>)
+            <div className={'button-wrapper'}>
+                <div className="button" onClick={() => {
+                    let data: userData = {
+                        name: name,
+                        email: email,
+                        password: password,
+                        password_confirmation: passwordConfirm
+                    };
+                    let funcs: { (value: string): void }[] = [setName, setEmail, setPassword, setPasswordConfirm]
+                    signupUser(data, setAlertMsg, props.hideModal, funcs, props.setAuth);
+                }}>Submit
+                </div>
+            </div>
+            <p className={'modal-link'} onClick={() => {
+                props.setType('login');
+            }}>LOGIN</p>
+            <div className={'modal-checkbox-wrapper'}>
+                {/*<div className={'modal-checkbox'}>*/}
+                {/*    Remember me? <input onClick={() => setRememberMe(!rememberMe)} type="checkbox"/>*/}
+                {/*</div>*/}
+            </div>
+        </div>);
 }
 
 export default SignUp;

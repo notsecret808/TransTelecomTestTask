@@ -1,0 +1,414 @@
+POST http://localhost/api/getBooksFromSections
+Content-Type: application/json
+X-Requested-With: XMLHttpRequest
+
+{
+  "section": "thriller"
+}
+
+<> 2020-11-24T114445.500.json
+
+###
+
+POST http://localhost/api/getBooksFromSections
+Content-Type: application/json
+X-Requested-With: XMLHttpRequest
+
+{
+  "section": "история"
+}
+
+<> 2020-11-24T114432.201.json
+
+###
+
+POST http://localhost/api/wellcome
+Content-Type: application/json
+
+{
+  "message": "hello"
+}
+
+<> 2020-11-24T113658.201.json
+
+###
+
+POST http://localhost/api/wellcome
+Content-Type: application/json
+
+{
+  "message": "hello"
+}
+
+<> 2020-11-24T113418.405.html
+
+###
+
+GET http://localhost/api/getSections
+Content-type: application/json,
+X-Requested-With: XMLHttpRequest
+
+<> 2020-11-24T112636.201.json
+
+###
+
+GET http://localhost/api/getSections
+Content-type: application/json,
+X-Requested-With: XMLHttpRequest
+
+<> 2020-11-24T112602.201.json
+
+###
+
+GET http://localhost/api/getSections
+Content-type: application/json,
+X-Requested-With: XMLHttpRequest
+
+<> 2020-11-24T112551.201.json
+
+###
+
+GET http://localhost/api/getSections
+Content-type: application/json,
+X-Requested-With: XMLHttpRequest
+
+<> 2020-11-24T112542.201.json
+
+###
+
+GET http://localhost/api/getSections
+Content-type: application/json,
+X-Requested-With: XMLHttpRequest
+
+<> 2020-11-24T112056.500.json
+
+###
+
+GET http://localhost/api/getSections
+Content-type: application/json,
+X-Requested-With: XMLHttpRequest
+
+<> 2020-11-24T111926.201.json
+
+###
+
+GET http://localhost/api/getSections
+Content-type: application/json,
+X-Requested-With: XMLHttpRequest
+
+<> 2020-11-24T111900.201.json
+
+###
+
+GET http://localhost/api/getSections
+Content-type: application/json,
+X-Requested-With: XMLHttpRequest
+
+<> 2020-11-24T111749.201.json
+
+###
+
+GET http://localhost/api/getSections
+Content-type: application/json,
+X-Requested-With: XMLHttpRequest
+
+<> 2020-11-24T111615.201.json
+
+###
+
+GET http://localhost/api/getSections
+Content-type: application/json,
+X-Requested-With: XMLHttpRequest
+
+<> 2020-11-24T110905.500.json
+
+###
+
+GET http://localhost/api/getSections
+Content-type: application/json,
+X-Requested-With: XMLHttpRequest
+
+<> 2020-11-24T110300.500.json
+
+###
+
+GET http://localhost/api/getSections
+Content-type: application/json,
+X-Requested-With: XMLHttpRequest
+
+<> 2020-11-24T105911.500.json
+
+###
+
+GET http://localhost/api/getSections
+Content-type: application/json,
+X-Requested-With: XMLHttpRequest
+
+<> 2020-11-24T105858.201.json
+
+###
+
+GET http://localhost/api/getSections
+Content-type: application/json,
+X-Requested-With: XMLHttpRequest
+
+<> 2020-11-24T105627.201.json
+
+###
+
+GET http://localhost/api/getSections
+Content-type: application/json,
+X-Requested-With: XMLHttpRequest
+
+<> 2020-11-24T105606.201.json
+
+###
+
+GET http://localhost/api/getSections
+Content-type: application/json,
+X-Requested-With: XMLHttpRequest
+
+<> 2020-11-24T105550.500.json
+
+###
+
+GET http://localhost/api/getSections
+Content-type: application/json,
+X-Requested-With: XMLHttpRequest
+
+<> 2020-11-24T105524.201.json
+
+###
+
+GET http://localhost/api/getSections
+Content-type: application/json,
+X-Requested-With: XMLHttpRequest
+
+<> 2020-11-24T105338.201.json
+
+###
+
+GET http://localhost/api/getSections
+Content-type: application/json,
+X-Requested-With: XMLHttpRequest
+
+<> 2020-11-24T105229.201.json
+
+###
+
+GET http://localhost/api/getSections
+Content-type: application/json,
+X-Requested-With: XMLHttpRequest
+
+<> 2020-11-24T105212.201.json
+
+###
+
+GET http://localhost/api/getSections
+Content-type: application/json,
+X-Requested-With: XMLHttpRequest
+
+<> 2020-11-24T105148.201.json
+
+###
+
+GET http://localhost/api/getSections
+Content-type: application/json,
+X-Requested-With: XMLHttpRequest
+
+<> 2020-11-24T105022.201.json
+
+###
+
+GET http://localhost/api/getSections
+Content-type: application/json,
+X-Requested-With: XMLHttpRequest
+
+<> 2020-11-24T104930.201.json
+
+###
+
+GET http://localhost/api/getSections
+Content-type: application/json,
+X-Requested-With: XMLHttpRequest
+
+<> 2020-11-24T104905.500.json
+
+###
+
+GET http://localhost/api/getSections
+Content-type: application/json,
+X-Requested-With: XMLHttpRequest
+
+<> 2020-11-24T104834.500.json
+
+###
+
+GET http://localhost/api/getSections
+Content-type: application/json,
+X-Requested-With: XMLHttpRequest
+
+<> 2020-11-24T104732.201.json
+
+###
+
+GET http://localhost/api/getSections
+Content-type: application/json,
+X-Requested-With: XMLHttpRequest
+
+<> 2020-11-24T104433.500.json
+
+###
+
+GET http://localhost/api/getSections
+Content-type: application/json,
+X-Requested-With: XMLHttpRequest
+
+<> 2020-11-24T104411.500.json
+
+###
+
+GET http://localhost/api/getSections
+Content-type: application/json,
+X-Requested-With: XMLHttpRequest
+
+<> 2020-11-24T104141.500.json
+
+###
+
+GET http://localhost/api/getSections
+Content-type: application/json,
+X-Requested-With: XMLHttpRequest
+
+<> 2020-11-24T104015.500.json
+
+###
+
+GET http://localhost/api/getSections
+Content-type: application/json,
+X-Requested-With: XMLHttpRequest
+
+<> 2020-11-24T014635.201.json
+
+###
+
+GET http://localhost/api/getSections
+Content-type: application/json,
+X-Requested-With: XMLHttpRequest
+
+<> 2020-11-24T014609.201.json
+
+###
+
+GET http://localhost/api/getSections
+Content-type: application/json,
+X-Requested-With: XMLHttpRequest
+
+<> 2020-11-24T014556.201.json
+
+###
+
+GET http://localhost/api/getSections
+Content-type: application/json,
+X-Requested-With: XMLHttpRequest
+
+<> 2020-11-24T014533.500.json
+
+###
+
+GET http://localhost/api/getSections
+Content-type: application/json,
+X-Requested-With: XMLHttpRequest
+
+<> 2020-11-24T014519.500.json
+
+###
+
+GET http://localhost/api/getSections
+Content-type: application/json,
+X-Requested-With: XMLHttpRequest
+
+<> 2020-11-24T014128.201.json
+
+###
+
+GET http://localhost/api/getSections
+Content-type: application/json,
+X-Requested-With: XMLHttpRequest
+
+<> 2020-11-24T014119.201.json
+
+###
+
+GET http://localhost/api/getSections
+Content-type: application/json,
+X-Requested-With: XMLHttpRequest
+
+<> 2020-11-24T014102.201.json
+
+###
+
+GET http://localhost/api/getSections
+Content-type: application/json,
+X-Requested-With: XMLHttpRequest
+
+<> 2020-11-24T014051.201.json
+
+###
+
+GET http://localhost/api/getSections
+Content-type: application/json,
+X-Requested-With: XMLHttpRequest
+
+<> 2020-11-24T014032.500.json
+
+###
+
+GET http://localhost/api/getSections
+Content-type: application/json,
+X-Requested-With: XMLHttpRequest
+
+<> 2020-11-24T013920.500.json
+
+###
+
+GET http://localhost/api/getSections
+Content-type: application/json,
+X-Requested-With: XMLHttpRequest
+
+<> 2020-11-24T013824.500.json
+
+###
+
+GET http://localhost/api/getSections
+Content-type: application/json,
+X-Requested-With: XMLHttpRequest
+
+<> 2020-11-24T013613.500.json
+
+###
+
+GET http://localhost/api/getSections
+Content-type: application/json,
+X-Requested-With: XMLHttpRequest
+
+<> 2020-11-24T013458.500.json
+
+###
+
+GET http://localhost/api/getSections
+Content-type: application/json,
+X-Requested-With: XMLHttpRequest
+
+<> 2020-11-24T013418.500.json
+
+###
+
+GET http://localhost/api/getSections
+Content-type: application/json,
+X-Requested-With: XMLHttpRequest
+
+<> 2020-11-24T013401.500.json
+
+###
+
