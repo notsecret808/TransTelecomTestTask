@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
@@ -34,4 +35,6 @@ Route::group([
 });
 
 Route::get('/wellcome', [TestController::class, 'helloWorld']);
-
+Route::post('/wellcome', [TestController::class, 'helloWorld']);
+Route::get('/getSections', [DashboardController::class, 'getSections']);
+Route::post('/getBooksFromSections', [DashboardController::class, 'getBooksFromSection']);
