@@ -95,4 +95,9 @@ class AuthController extends Controller
     {
         return response()->json($request->user());
     }
+
+    protected function unauthenticated($request, AuthenticationException $exception)
+    {
+        return response()->json(['error' => 'Unauthenticated.'], 401);
+    }
 }

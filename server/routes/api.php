@@ -34,7 +34,10 @@ Route::group([
     });
 });
 
-Route::get('/wellcome', [TestController::class, 'helloWorld']);
-Route::post('/wellcome', [TestController::class, 'helloWorld']);
+Route::middleware('auth:api')->post('/wellcome/', [TestController::class, 'helloWorld']);
 Route::get('/getSections', [DashboardController::class, 'getSections']);
+Route::get('/getAllBooks', [DashboardController::class, 'getAllBooks']);
 Route::post('/getBooksFromSections', [DashboardController::class, 'getBooksFromSection']);
+Route::middleware('auth:api')->post('/removeBook', [DashboardController::class, 'removeBook']);
+Route::middleware('auth:api')->post('/addBook/', [DashboardController::class, 'addBook']);
+//Route::middleware('auth:api')->post('/uploadFile', [DashboardController::class, 'uploadFile']);

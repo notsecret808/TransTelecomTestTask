@@ -13,7 +13,9 @@ class Book extends Model
         'book_name',
         'book_author',
         'book_description',
+        'book_published',
         'section_name',
-        'book_cover'
+        'book_cover',
+        'email'
     ];
 }

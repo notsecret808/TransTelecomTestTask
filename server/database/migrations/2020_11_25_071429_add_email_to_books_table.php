@@ -14,7 +14,7 @@ class AddEmailToBooksTable extends Migration
     public function up()
     {
         Schema::table('books', function (Blueprint $table) {
-            //
+            $table->string('email');
         });
     }
 
@@ -26,7 +26,7 @@ class AddEmailToBooksTable extends Migration
     public function down()
     {
         Schema::table('books', function (Blueprint $table) {
-            //
+            $table->dropColumn('email');
         });
     }
 }
