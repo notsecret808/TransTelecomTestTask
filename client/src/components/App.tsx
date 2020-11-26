@@ -27,6 +27,7 @@ function App() {
                 isAuth: true
             })
         }
+        // @ts-ignore
     }, [])
 
     return (

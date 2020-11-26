@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+import DOMAIN from "../../../DOMAIN";
 
 function formatBytes(a: number, b = 2) {
     let result = a / 1024;
@@ -14,6 +15,40 @@ function check_file_size(event: any) {
     let file_type = event.target.files[0].type;
 }
 
+function sendData(bookName: string, bookAuthor: string, bookDescription: string, bookCover: any,
+                  bookPublished: string, sectionName: string, isOpen: boolean, hide: any) {
+    if (!isOpen) return;
+    let formData = new FormData();
+    const email: string | null = sessionStorage.getItem('email');
+    formData.append('bookName', bookName);
+    formData.append('bookAuthor', bookAuthor);
+    formData.append('bookAuthor', bookAuthor);
+    formData.append('bookDescription', bookDescription);
+    formData.append('bookCover', bookCover);
+    formData.append('bookPublished', bookPublished);
+    formData.append('sectionName', sectionName);
+    // @ts-ignore
+    formData.append('email', email);
+
+    // @ts-ignore
+    fetch(DOMAIN + '/api/addBook/', {
+        method: 'POST',
+        mode: 'cors',
+        headers: {
+            'Authorization': 'Bearer ' + sessionStorage.getItem('token'),
+            'X-Requested-With': 'XMLHttpRequest',
+        },
+        body: formData
+    }).then(response => {
+        if (!response.ok) {
+            alert('Problems with server')
+        } else {
+            // @ts-ignore
+            document.querySelector("#all-section-client").click();
+            hide();
+        }
+    });
+}
 
 function ModalAddBook(props: any) {
     const defaultData = {
@@ -28,16 +63,20 @@ function ModalAddBook(props: any) {
     const [bookDescription, setBookDescription] = useState(defaultData);
     const [bookCover, setBookCover] = useState({
         value: 0,
+        file: null,
         isRight: false,
-        isRightClass: 'wrong'
+        isRightClass: 'file-not-uploaded',
+        title: 'Image not uploaded'
 
     });
     const [bookPublished, setBookPublished] = useState(defaultData);
     const [sectionName, setSectionName] = useState(defaultData);
-    let arr = props.sections.map((value: string) => {
-        return <option>{value}</option>
+    let arr = props.sections.map((value: string, index: number) => {
+        return <option key={index}>{value}</option>
     })
-
+    let sectionsNameOnly = props.sections.map((value: string) => {
+        return {value}
+    })
     useEffect(() => {
         if (bookName.isRight && bookCover.isRight && bookAuthor.isRight &&
             bookDescription.isRight && bookPublished.isRight && sectionName.isRight) {
@@ -64,14 +103,16 @@ function ModalAddBook(props: any) {
                         isRight: true,
                         isRightClass: ''
                     })
-                    if (event.target.value.length == 0 || event.target.value.length > 150) {
+                    if (event.target.value.length == 0 || event.target.value.length > 150
+                    ) {
                         setBookName({
                             value: event.target.value,
                             isRight: false,
                             isRightClass: 'wrong'
                         })
                     }
-                }} className={"add-book-input-field " + bookName.isRightClass} placeholder="Book name"/>
+                }
+                } className={"add-book-input-field " + bookName.isRightClass} placeholder="Book name"/>
                 <input onChange={(event) => {
                     setBookAuthor({
                         value: event.target.value,
@@ -88,44 +129,54 @@ function ModalAddBook(props: any) {
                 }} className={"add-book-input-field " + bookAuthor.isRightClass} placeholder="Book author"/>
             </div>
             <div className={'add-book-inputs'}>
-                <textarea onChange={(event) => {
-                    setBookDescription({
-                        value: event.target.value,
-                        isRight: true,
-                        isRightClass: ''
-                    });
-                    if (event.target.value.length > 2000 || event.target.value.length == 0) {
+                    <textarea onChange={(event) => {
                         setBookDescription({
                             value: event.target.value,
-                            isRight: false,
-                            isRightClass: 'wrong'
-                        })
-
-                    }
-                }} className={"add-book-textarea-field " + bookDescription.isRightClass}
-                          placeholder="Book description"/>
-            </div>
-            <div className={'add-book-file-upload'}>
-                <label className={"add-book-input-label" + +bookCover.isRightClass} htmlFor="img">Select image:</label>
-                <input className={"add-book-file-upload-field"} placeholder="Book cover"
-                       type="file"
-                       id="add-book-img"
-                       accept="image/*" onChange={(event) => {
-                    let file_size = check_file_size(event);
-                    if (file_size <= 500) {
-                        setBookCover({
-                            value: file_size,
                             isRight: true,
                             isRightClass: ''
                         });
-                    } else {
-                        setBookCover({
-                            value: file_size,
-                            isRight: false,
-                            isRightClass: 'wrong'
-                        });
-                    }
-                }}/>
+                        if (event.target.value.length > 2000 || event.target.value.length == 0) {
+                            setBookDescription({
+                                value: event.target.value,
+                                isRight: false,
+                                isRightClass: 'wrong'
+                            })
+
+                        }
+                    }} className={"add-book-textarea-field " + bookDescription.isRightClass}
+                              placeholder="Book description"/>
+            </div>
+            <div className={'add-book-file-upload'}>
+                <h4 className={"add-book-file-upload-title " + bookCover.isRightClass}>{bookCover.title}</h4>
+                {/*<label className={"add-book-input-label" + +bookCover.isRightClass} htmlFor="img">Select image:</label>*/}
+                <div className={"add-book-file-upload-field"}>
+                    <input placeholder="Book cover"
+                           className="add-book-file-uploading"
+                           type="file"
+                           id="add-book-img"
+                           accept="image/*" onChange={(event) => {
+                        let file_size = check_file_size(event);
+                        if (file_size <= 500 && file_size > 0) {
+                            // @ts-ignore
+                            setBookCover({
+                                value: file_size,
+                                isRight: true,
+                                // @ts-ignore
+                                file: event.target.files[0],
+                                isRightClass: 'file-uploaded',
+                                title: 'Image uploaded'
+                            });
+                        } else {
+                            setBookCover({
+                                value: file_size,
+                                isRight: false,
+                                file: null,
+                                isRightClass: 'file-not-uploaded',
+                                title: 'Image too big'
+                            });
+                        }
+                    }}/>
+                </div>
             </div>
             <div className={'add-book-inputs'}>
                 <input onChange={(event) => {
@@ -134,7 +185,8 @@ function ModalAddBook(props: any) {
                         isRight: true,
                         isRightClass: ''
                     })
-                    if (bookPublished.value.length == 0 || bookPublished.value.length > 5) {
+                    if (event.target.value.length > 4 || !Number.isInteger(Number(event.target.value))
+                        || Number(event.target.value) < 0) {
                         setBookPublished({
                             value: event.target.value,
                             isRight: false,
@@ -149,11 +201,14 @@ function ModalAddBook(props: any) {
                         isRight: true,
                         isRightClass: ''
                     })
-                    if (bookDescription.value.length == 0 || bookDescription.value.length > 150) {
+                    if (event.target.value.length == 0 || event.target.value.length > 150
+                        || sectionsNameOnly.find((item: any) => {
+                            if (item.value == event.target.value) return true;
+                        }) == undefined) {
                         setSectionName({
                             value: event.target.value,
-                            isRight: true,
-                            isRightClass: ''
+                            isRight: false,
+                            isRightClass: 'wrong'
                         })
                     }
                 }} className={"add-book-input-field " + sectionName.isRightClass} placeholder="Section name"
@@ -163,7 +218,9 @@ function ModalAddBook(props: any) {
                 </datalist>
             </div>
             <div className="add-book-button-wrapper">
-                <div className={targetClass}>
+                <div className={targetClass}
+                     onClick={() => sendData(bookName.value, bookAuthor.value,
+                         bookDescription.value, bookCover.file, bookPublished.value, sectionName.value, buttonOpen, props.hide)}>
                     Отправить
                 </div>
             </div>

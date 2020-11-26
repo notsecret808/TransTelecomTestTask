@@ -4,13 +4,14 @@ import Login from "./Header/Login";
 import auth from "./types/auth";
 import modalPayload from "./types/modalPayload";
 import ModalAddBook from "./Dashboard/AddBook/ModalAddBook";
+import ModalCard from "./Dashboard/WorkSpace/ModalCard";
 
 
 interface Modal {
     hideModal: { (): void },
     setAuth: { (auth: auth): void },
     modalInfo: modalPayload,
-    setModal: { (value1: boolean, value2: string, value3: any): void }
+    setModal: { (value1: boolean, value2: string, value3: any): void },
 }
 
 function Modal(props: Modal) {
@@ -61,7 +62,24 @@ function Modal(props: Modal) {
                         <div className={'modal-header'}>
                             <div onClick={() => props.hideModal()} className="modal-checkbox-item">X</div>
                         </div>
-                        <ModalAddBook sections={props.modalInfo.payload}/>
+                        <ModalAddBook hide={() => props.hideModal()} sections={props.modalInfo.payload}/>
+                    </div>
+                </div>
+
+            </div>
+        );
+    }
+
+    if (props.modalInfo.type === "Card") {
+        return (
+            <div className={'bg-modal ' + targetClass} hidden={props.modalInfo.isHidden}>
+                <div className={'modal'}>
+                    <div className={'modal-wrapper'}>
+                        <div className={'modal-header'}>
+                            <div onClick={() => props.hideModal()} className="modal-checkbox-item">X</div>
+                        </div>
+                        <ModalCard hide={() => props.hideModal()}
+                                   book={props.modalInfo.payload}/>
                     </div>
                 </div>
 
