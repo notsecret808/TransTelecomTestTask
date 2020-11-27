@@ -47,7 +47,7 @@ services:
       - "3306:3306"
     environment:
       MYSQL_DATABASE: laravel
-      #Вставьте сюда придуманный вами пароль
+      #Пароль от базы данных
       MYSQL_ROOT_PASSWORD: TransTelecomTest
       SERVICE_TAGS: dev
       SERVICE_NAME: mysql
@@ -67,7 +67,7 @@ services:
     environment:
       PMA_HOST: db
       PMA_USER: root
-      #Вставьте сюда придуманный вами пароль
+      #Пароль от базы данных
       PMA_PASSWORD: TransTelecomTest
     networks:
       - app-network
