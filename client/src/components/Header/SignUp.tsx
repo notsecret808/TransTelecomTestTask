@@ -32,18 +32,22 @@ function signupUser(data: userData, setAlertMsg: any, hideModal: any, funcs: { (
                 func('');
             }
             hideModal();
-            setAuth({
-                name: data.name,
-                isAuth: true
-            });
-            sessionStorage.setItem('name', data.name);
-            sessionStorage.setItem('email', data.email);
         }
         console.log(response);
         if (!response.ok) {
             setAlertMsg('Check your credentials')
         }
         return response.json();
+    }).then(result => {
+        if (result.username != undefined) {
+            setAuth({
+                name: result.username,
+                isAuth: true
+            });
+            sessionStorage.setItem('name', result.username);
+            sessionStorage.setItem('email', data.email);
+            sessionStorage.setItem('token', result.access_token);
+        }
     });
 }
 

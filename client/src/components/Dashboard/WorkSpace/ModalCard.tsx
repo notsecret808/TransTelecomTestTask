@@ -34,12 +34,11 @@ function removeBook(id: number, section_id: string, hide: { (): void }) {
         },
         body: JSON.stringify(data)
     }).then(response => {
-        if (!response.ok) {
-            alert('Problems with server')
-        } else {
-            return response.json()
-        }
+        return response.json()
     }).then(result => {
+        if (result.error !== undefined) {
+            alert(result.error);
+        }
         console.log(section_id);
         console.log('ok', document.querySelector(section_id));
         // @ts-ignore

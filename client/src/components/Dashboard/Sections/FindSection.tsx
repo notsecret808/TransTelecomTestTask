@@ -41,7 +41,7 @@ function FindSection(props: FindSection) {
     const [name, setName] = useState(true);
     return (
         <div className={'find-books-container'}>
-            <input id={'find-section-client'} className={'find-books'} placeholder={'Enter information'}
+            <input id={'find-section-client'} className={'find-books'} placeholder={'Find books...'}
                    onChange={(event) => {
                        setFindInfo(event.target.value);
                    }}/>

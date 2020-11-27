@@ -1,12 +1,13 @@
 #sidebar {
     min-height: 100vh;
     width: 20%;
-    background-color: rgba(137, 245, 223,0.3);
-    border-right: 1px solid black;
+    background-color: rgba(63, 193, 201, 0.5);
+    border-right: 1px solid transparent;
+    padding-top: 1rem;
 }
 
 #workspace {
-    background-color: rgba(234, 155, 155, 0.5);
+    background-color: rgb(245, 245, 245);
     width: 80%;
 }
 
@@ -25,13 +26,14 @@
 
 .mini-card {
     display: flex;
+    color: rgb(245, 245, 245);
     flex-direction: column;
     justify-content: center;
     margin: 1rem;
     border: 2px black solid;
     padding: 1rem;
     border-radius: 10px;
-    background-color: rgba(154, 241, 212, 0.7);
+    background-color: rgb(252, 81, 133);
     width: 50%;
     height: 80%;
     min-height: 80%;
@@ -96,12 +98,14 @@
     justify-content: center;
     padding: 1rem;
     border-collapse: collapse;
-    background-color: rgba(246, 107, 107, 0.7);
-    border-top: 1px black solid;
-    border-bottom: 1px black solid;
-    width: 100%;
+    background-color: rgb(252, 81, 133);
+    color: rgb(245, 245, 245);
+    width: 80%;
+    border-radius: 10px;
+    margin: 0 auto;
     margin-bottom: 1rem;
     box-sizing: border-box;
+
 }
 
 
@@ -117,15 +121,19 @@
 }
 
 .sidebar-first:hover {
-    background-color: white;
+    background-color: rgb(245, 245, 245);
+    transition: 0.2s;
 }
 
 .sidebar-item:hover {
-    background-color: white;
+    color: black;
+    background-color: rgb(245, 245, 245);
+    transition: 0.2s;
 }
 
 #add-book:hover {
-    background-color: white;
+    background-color: rgb(245, 245, 245);
+    transition: 0.2s;
 
 }
 
@@ -301,6 +309,7 @@ h3 {
 
 .card-button:hover {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    transition: 0.2s;
 }
 
 .edit {
@@ -318,10 +327,12 @@ h3 {
 
 .mini-card:hover {
     background-color: #9561e2;
+    transition: 0.2s;
 }
 
 .add-book-button:hover {
     background-color: #eeaf15;
+    transition: 0.2s;
 }
 
 
@@ -329,7 +340,6 @@ h3 {
     width: 100%;
     display: flex;
     justify-content: space-around;
-    /*padding-top: 4rem;*/
 }
 
 .pagination p {
@@ -339,11 +349,12 @@ h3 {
 
 .pagination p:hover {
     color: red;
+    transition: 0.2s;
 }
 
 .section-pagination-counter {
-    color: white;
-    background-color: #1a202c;
+    color: black;
+    background-color: rgb(245, 245, 245);
     border: 1px solid black;
     padding: 0.5rem;
     border-radius: 20px;
@@ -351,11 +362,9 @@ h3 {
 
 .section-pagination-counter:hover {
     background-color: #0e5cfd;
-}
+    transition: 0.2s;
 
-/*.fix-container {*/
-/*    height: 40px;*/
-/*}*/
+}
 
 .sidebar-wrapper {
     height: 65%;
@@ -387,5 +396,6 @@ h3 {
 }
 
 .find-book-button:hover {
-    background-color: #9561e2;
+    background-color: rgb(245, 245, 245);
+    transition: 0.2s;
 }
