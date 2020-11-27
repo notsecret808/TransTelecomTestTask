@@ -7,7 +7,8 @@ interface SidebarItem {
     first?: boolean,
     setBooks: { (): void },
     id: string,
-    setSection: { (value: string): void }
+    setSection: { (value: string): void },
+    PagToBegin: { (): void }
 }
 
 function getBooks(section: string, setBooks: any) {
@@ -45,6 +46,7 @@ function SidebarItem(props: SidebarItem) {
                  onClick={() => {
                      getBooks(props.section, props.setBooks);
                      setSection(props.id, props.setSection);
+                     props.PagToBegin();
                  }}>{props.section}</div>
         )
     } else {
@@ -53,6 +55,7 @@ function SidebarItem(props: SidebarItem) {
                  onClick={() => {
                      getBooks(props.section, props.setBooks);
                      setSection(props.id, props.setSection);
+                     props.PagToBegin();
                  }}>{props.section}</div>
         )
     }

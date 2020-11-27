@@ -3,7 +3,8 @@ import DOMAIN from "../../../DOMAIN";
 
 interface AllSection {
     setBooks: { (): void }
-    setSection: { (value: string): void }
+    setSection: { (value: string): void },
+    PagToBegin: { (): void }
 }
 
 function getBooks(setBooks: any) {
@@ -21,7 +22,9 @@ function getBooks(setBooks: any) {
             return response.json();
         }
     }).then(result => {
-        setBooks(result.data)
+        if (result !== undefined) {
+            setBooks(result.data);
+        }
     });
 }
 
@@ -31,8 +34,9 @@ function AllSection(props: AllSection) {
         <div id={'all-section-client'}
              className="sidebar-item" onClick={() => {
             getBooks(props.setBooks);
+            props.PagToBegin()
             props.setSection('#all-section-client');
-        }}>ALL</div>
+        }}>All books</div>
     )
 }
 

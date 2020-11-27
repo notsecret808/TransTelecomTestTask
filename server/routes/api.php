@@ -1,10 +1,10 @@
 <?php
 
-use App\Http\Controllers\DashboardController;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\TestController;
+use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -28,7 +28,7 @@ Route::group([
 
     Route::group([
         'middleware' => 'auth:api'
-    ], function() {
+    ], function () {
         Route::get('logout', [AuthController::class, 'logout']);
         Route::get('user', [AuthController::class, 'user']);
     });
@@ -38,6 +38,10 @@ Route::middleware('auth:api')->post('/wellcome/', [TestController::class, 'hello
 Route::get('/getSections', [DashboardController::class, 'getSections']);
 Route::get('/getAllBooks', [DashboardController::class, 'getAllBooks']);
 Route::post('/getBooksFromSections', [DashboardController::class, 'getBooksFromSection']);
-Route::middleware('auth:api')->post('/removeBook', [DashboardController::class, 'removeBook']);
+Route::post('/getPassword', [TestController::class, 'generatePassword']);
 Route::middleware('auth:api')->post('/addBook/', [DashboardController::class, 'addBook']);
-//Route::middleware('auth:api')->post('/uploadFile', [DashboardController::class, 'uploadFile']);
+Route::middleware('auth:api')->post('/editBook/', [DashboardController::class, 'editBook']);
+Route::middleware('auth:api')->post('/removeBook/', [DashboardController::class, 'removeBook']);
+Route::middleware('auth:api')->get('/checkAdminRights/', [DashboardController::class, 'checkAdminRights']);
+Route::middleware('auth:api')->post('/addSection/', [DashboardController::class, 'addSection']);
+Route::post('/findBooks/', [DashboardController::class, 'findBooks']);

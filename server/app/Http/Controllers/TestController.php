@@ -3,30 +3,21 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Book;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 
 class TestController extends Controller
 {
-    public function helloWorld(Request $request)
+    public function generatePassword(Request $request)
     {
-        $books = Book::where('section_name', 'что-то')->get();
-        return response()->json([
-            'message' => 'ok'
-        ], 201);
-//        return response()->json([
-//            'message' => $request->message
-//        ], 201);
-    }
-
-    public function checkFile(Request $request)
-    {
-        if ($request->file('book_cover')->isValid()) {
+        $content = json_decode($request->getContent(), true);
+        $key = $content['key'];
+        if ($key != null) {
             return response()->json([
-                'message' => 'ok'
-            ], 201);
+                'password' => Hash::make($key)
+            ]);
+
         }
-        abort(500, 'Could not upload image');
     }
 }

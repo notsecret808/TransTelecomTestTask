@@ -5,7 +5,7 @@ interface MiniCard {
     book: any
     setModal: { (isHidden: boolean, type: string, payload: string): void },
     isAuth: boolean,
-    targetSection: string
+    targetSection: string,
 }
 
 

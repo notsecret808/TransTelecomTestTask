@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import DOMAIN from "../../../DOMAIN";
 
-function formatBytes(a: number) {
+function formatBytes(a: number, b = 2) {
     let result = a / 1024;
     return Math.ceil(result);
 }
@@ -12,11 +12,12 @@ function check_file_size(event: any) {
     return formatBytes(file_size);
 }
 
-function sendData(bookName: string, bookAuthor: string, bookDescription: string, bookCover: any,
+function sendData(id: string, bookName: string, bookAuthor: string, bookDescription: string, bookCover: any,
                   bookPublished: string, sectionName: string, isOpen: boolean, hide: any) {
     if (!isOpen) return;
     let formData = new FormData();
     const email: string | null = sessionStorage.getItem('email');
+    formData.append('id', id);
     formData.append('bookName', bookName);
     formData.append('bookAuthor', bookAuthor);
     formData.append('bookDescription', bookDescription);
@@ -27,7 +28,7 @@ function sendData(bookName: string, bookAuthor: string, bookDescription: string,
     formData.append('sectionName', sectionName);
 
     // @ts-ignore
-    fetch(DOMAIN + '/api/addBook/', {
+    fetch(DOMAIN + '/api/editBook/', {
         method: 'POST',
         mode: 'cors',
         headers: {
@@ -45,22 +46,33 @@ function sendData(bookName: string, bookAuthor: string, bookDescription: string,
         }
     }).then(result => {
         if (result != undefined) {
-            alert(result.message);
+            alert(result.error);
         }
     });
 }
 
-function ModalAddBook(props: any) {
+function ModalEditBook(props: any) {
     const defaultData = {
         value: '',
         isRight: false,
         isRightClass: 'wrong'
     }
-    // const [targetClass, setTargetClass] = useState('add-book-button-forbidden');
-    const [buttonOpen, setButtonOpen] = useState(false);
-    const [bookName, setBookName] = useState(defaultData);
-    const [bookAuthor, setBookAuthor] = useState(defaultData);
-    const [bookDescription, setBookDescription] = useState(defaultData);
+    const [buttonOpen, setButtonOpen] = useState(true);
+    const [bookName, setBookName] = useState({
+        value: props.book.book_name,
+        isRight: true,
+        isRightClass: ''
+    });
+    const [bookAuthor, setBookAuthor] = useState({
+        value: props.book.book_author,
+        isRight: true,
+        isRightClass: ''
+    });
+    const [bookDescription, setBookDescription] = useState({
+        value: props.book.book_description,
+        isRight: true,
+        isRightClass: ''
+    });
     const [bookCover, setBookCover] = useState({
         value: 0,
         file: null,
@@ -70,12 +82,15 @@ function ModalAddBook(props: any) {
 
     });
     const [bookPublished, setBookPublished] = useState({
-        value: '',
+        value: props.book.book_published,
         isRight: true,
         isRightClass: ''
     });
-    // const [targetClass, );
-    const [sectionName, setSectionName] = useState(defaultData);
+    const [sectionName, setSectionName] = useState({
+        value: props.book.section_name,
+        isRight: true,
+        isRightClass: ''
+    });
     let arr = props.sections.map((value: string, index: number) => {
         return <option key={index}>{value}</option>
     })
@@ -99,9 +114,9 @@ function ModalAddBook(props: any) {
 
     return (
         <div className={'add-book-wrapper overflow-hidden'}>
-            <h3>Add book information</h3>
+            <h3>Edit book information</h3>
             <div className={'add-book-inputs'}>
-                <input onChange={(event) => {
+                <input value={bookName.value} onChange={(event) => {
                     setBookName({
                         value: event.target.value,
                         isRight: true,
@@ -117,7 +132,7 @@ function ModalAddBook(props: any) {
                     }
                 }
                 } className={"add-book-input-field " + bookName.isRightClass} placeholder="Book name"/>
-                <input onChange={(event) => {
+                <input value={bookAuthor.value} onChange={(event) => {
                     setBookAuthor({
                         value: event.target.value,
                         isRight: true,
@@ -133,7 +148,7 @@ function ModalAddBook(props: any) {
                 }} className={"add-book-input-field " + bookAuthor.isRightClass} placeholder="Book author"/>
             </div>
             <div className={'add-book-inputs'}>
-                    <textarea onChange={(event) => {
+                    <textarea value={bookDescription.value} onChange={(event) => {
                         setBookDescription({
                             value: event.target.value,
                             isRight: true,
@@ -183,7 +198,7 @@ function ModalAddBook(props: any) {
                 </div>
             </div>
             <div className={'add-book-inputs'}>
-                <input onChange={(event) => {
+                <input value={bookPublished.value} onChange={(event) => {
                     setBookPublished({
                         value: event.target.value,
                         isRight: true,
@@ -199,7 +214,7 @@ function ModalAddBook(props: any) {
                     }
                 }} className={"add-book-input-field " + bookPublished.isRightClass}
                        placeholder="Book published (unnecessary)"/>
-                <input onChange={(event) => {
+                <input value={sectionName.value} onChange={(event) => {
                     setSectionName({
                         value: event.target.value,
                         isRight: true,
@@ -223,7 +238,7 @@ function ModalAddBook(props: any) {
             </div>
             <div className="add-book-button-wrapper">
                 <div className={targetClass}
-                     onClick={() => sendData(bookName.value, bookAuthor.value,
+                     onClick={() => sendData(props.book.id, bookName.value, bookAuthor.value,
                          bookDescription.value, bookCover.file, bookPublished.value, sectionName.value, buttonOpen, props.hide)}>
                     Отправить
                 </div>
@@ -231,4 +246,4 @@ function ModalAddBook(props: any) {
         </div>);
 }
 
-export default ModalAddBook;
+export default ModalEditBook;

@@ -9,14 +9,13 @@ interface AddBook {
 function AddBook(props: AddBook) {
     const [isHidden, setIsHidden] = useState(false);
     if (!props.isAuth || isHidden) {
-        let targetClass = "hide";
         return (
             <div id={'add-book'} className="hide">
             </div>
         );
     } else {
         return (
-            <div id={'add-book'} className={'sidebar-item '} onClick={() => {
+            <div id={'add-book'} className={'sidebar-item'} onClick={() => {
                 props.setModal(false, 'addBook', props.sections);
             }}>
                 Add Book

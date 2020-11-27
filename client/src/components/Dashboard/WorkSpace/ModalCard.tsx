@@ -12,11 +12,12 @@ interface ModalCard {
         section_name: string,
         isAuth: boolean,
         client_id: string,
-        targetSection: string
+        targetSection: string,
     },
     hide: {
         (): void
     },
+    setModal: { (isHidden: boolean, type: string, payload: any): void }
 
 }
 
@@ -45,6 +46,12 @@ function removeBook(id: number, section_id: string, hide: { (): void }) {
         document.querySelector(section_id).click();
         hide();
     });
+}
+
+function hideBook(client_id: string, hide: { (): void }) {
+    // @ts-ignore
+    document.querySelector('#' + client_id).classList.add('hide');
+    hide();
 }
 
 
@@ -89,7 +96,10 @@ function ModalCard(props: ModalCard) {
                 <p>{props.book.book_description}</p>
             </div>
             <div className={'card-info'}>
-                <div className={'card-button edit ' + targetClass}>
+                <div className={'card-button edit ' + targetClass} onClick={() => {
+                    props.setModal(false, 'editBook', props.book);
+                }}
+                >
                     <p>Edit</p>
                 </div>
                 <div onClick={() => {
@@ -97,7 +107,9 @@ function ModalCard(props: ModalCard) {
                 }} className={'card-button remove ' + targetClass}>
                     <p>Remove</p>
                 </div>
-                <div className={'card-button hide-btn ' + targetClass}>
+                <div className={'card-button hide-btn ' + targetClass} onClick={() => {
+                    hideBook(props.book.client_id, props.hide)
+                }}>
                     <p>Hide</p>
                 </div>
             </div>

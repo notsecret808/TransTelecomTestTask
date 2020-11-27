@@ -2,9 +2,10 @@
     display: flex;
     justify-content: center;
     width: 100%;
-    background-color: rgb(133, 149, 222);
+    background-color: rgba(133, 149, 222);
     height: 100px;
     border: black 1px solid;
+    /*overflow: hidden;*/
 }
 
 .header-wrapper {
@@ -19,6 +20,27 @@
     justify-content: center;
 }
 
+.admin-question:hover {
+    color: red;
+}
+
+.logout {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+    color: white;
+    padding: 1rem;
+    border: 1px solid white;
+    border-radius: 5px;
+}
+
+.logout:hover {
+    background-color: crimson;
+    border: 1px solid transparent;
+}
+
+
+
 .header-button p:hover {
     color: white;
 }
@@ -28,8 +50,13 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-content: center;
 }
 
+.header-button-greeting p {
+    text-align: center;
+    color: green;
+}
 
 .button {
     display: flex;

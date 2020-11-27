@@ -13,8 +13,9 @@ function App() {
     });
     const [auth, setAuth] = useState({
         name: '',
-        isAuth: false
+        isAuth: false,
     });
+    const [isAdmin, setIsAdmin] = useState(false);
 
     useEffect(() => {
         if (sessionStorage.getItem('token') != null || sessionStorage.getItem('name')) {
@@ -24,8 +25,9 @@ function App() {
             }
             setAuth({
                 name: name,
-                isAuth: true
+                isAuth: true,
             })
+            setIsAdmin(false);
         }
         // @ts-ignore
     }, [])
@@ -36,7 +38,7 @@ function App() {
                 isHidden: false,
                 type: 'login',
                 payload: ''
-            })} auth={auth} setAuth={setAuth}/>
+            })} auth={auth} setAuth={setAuth} setAdmin={setIsAdmin}/>
             <Modal
                 hideModal={() => setModal({
                     isHidden: true,

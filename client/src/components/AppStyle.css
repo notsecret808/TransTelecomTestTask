@@ -1,7 +1,6 @@
 body {
-    background-image: url('');
     margin: 0;
-    overflow: hidden;
+    overflow: hidden !important;
 }
 
 #app {
@@ -41,6 +40,7 @@ body {
     height: 100%;
     flex-direction: column;
     justify-content: center;
+
 }
 
 
@@ -84,19 +84,3 @@ body {
     padding: 8px;
     border: 1px solid gray;
 }
-
-
-/*.input-field {*/
-/*    margin: 3rem auto;*/
-/*    display: block;*/
-/*    width: 50%;*/
-/*    padding: 8px;*/
-/*    border: 1px solid gray;*/
-/*}*/
-
-/*.input-field {*/
-/*    margin: 3rem auto;*/
-/*    display: block;*/
-/*    width: 50%;*/
-/*    padding: 8px;*/
-/*}*/
