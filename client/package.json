@@ -2,7 +2,7 @@
   "name": "levandro_site",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://notsecret808.github.io/personal_page/",
+  "homepage": "https://notsecret808.github.io",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
