@@ -39,8 +39,6 @@ function removeBook(id: number, section_id: string, hide: { (): void }) {
         if (result.error !== undefined) {
             alert(result.error);
         }
-        console.log(section_id);
-        console.log('ok', document.querySelector(section_id));
         // @ts-ignore
         document.querySelector(section_id).click();
         hide();

@@ -33,7 +33,6 @@ function signupUser(data: userData, setAlertMsg: any, hideModal: any, funcs: { (
             }
             hideModal();
         }
-        console.log(response);
         if (!response.ok) {
             setAlertMsg('Check your credentials')
         }
@@ -99,9 +98,6 @@ function SignUp(props: SignUp) {
                 props.setType('login');
             }}>LOGIN</p>
             <div className={'modal-checkbox-wrapper'}>
-                {/*<div className={'modal-checkbox'}>*/}
-                {/*    Remember me? <input onClick={() => setRememberMe(!rememberMe)} type="checkbox"/>*/}
-                {/*</div>*/}
             </div>
         </div>);
 }

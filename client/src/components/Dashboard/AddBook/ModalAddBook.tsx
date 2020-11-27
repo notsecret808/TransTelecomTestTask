@@ -56,7 +56,6 @@ function ModalAddBook(props: any) {
         isRight: false,
         isRightClass: 'wrong'
     }
-    // const [targetClass, setTargetClass] = useState('add-book-button-forbidden');
     const [buttonOpen, setButtonOpen] = useState(false);
     const [bookName, setBookName] = useState(defaultData);
     const [bookAuthor, setBookAuthor] = useState(defaultData);
@@ -74,7 +73,6 @@ function ModalAddBook(props: any) {
         isRight: true,
         isRightClass: ''
     });
-    // const [targetClass, );
     const [sectionName, setSectionName] = useState(defaultData);
     let arr = props.sections.map((value: string, index: number) => {
         return <option key={index}>{value}</option>
@@ -152,7 +150,6 @@ function ModalAddBook(props: any) {
             </div>
             <div className={'add-book-file-upload'}>
                 <h4 className={"add-book-file-upload-title " + bookCover.isRightClass}>{bookCover.title}</h4>
-                {/*<label className={"add-book-input-label" + +bookCover.isRightClass} htmlFor="img">Select image:</label>*/}
                 <div className={"add-book-file-upload-field"}>
                     <input placeholder="Book cover"
                            className="add-book-file-uploading"

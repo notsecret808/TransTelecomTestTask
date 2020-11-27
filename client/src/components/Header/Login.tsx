@@ -84,9 +84,6 @@ function Login(props: Login) {
             <p className={'modal-link'} onClick={() => {
                 props.setType('signup');
             }}>SIGNUP</p>
-            {/*<div className={'modal-checkbox'}>*/}
-            {/*    Remember me? <input onClick={() => setRememberMe(!rememberMe)} type="checkbox"/>*/}
-            {/*</div>*/}
         </div>
     );
 }

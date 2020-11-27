@@ -9,7 +9,6 @@ function WorkSpace(props: any) {
         let data = book;
         data.sections = props.sections;
         data.client_id = client_id;
-        console.log(book);
         return <MiniCard targetSection={props.targetSection} key={index + 1}
                          setModal={props.setModal}
                          isAuth={props.isAuth} book={data}/>

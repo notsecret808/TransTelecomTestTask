@@ -11,7 +11,6 @@ interface MiniCard {
 
 function MiniCard(props: MiniCard) {
     let data = props.book;
-    console.log('data', data);
     data.isAuth = props.isAuth;
     data.targetSection = props.targetSection;
     return (

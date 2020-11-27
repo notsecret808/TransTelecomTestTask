@@ -16,10 +16,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-//Route::middleware('auth:api')->get('/user', function (Request $request) {
-//    return $request->user();
-//});
-
 Route::group([
     'prefix' => 'auth'
 ], function () {
@@ -34,14 +30,19 @@ Route::group([
     });
 });
 
+//helpers endpoints (no production)
 Route::middleware('auth:api')->post('/wellcome/', [TestController::class, 'helloWorld']);
-Route::get('/getSections', [DashboardController::class, 'getSections']);
-Route::get('/getAllBooks', [DashboardController::class, 'getAllBooks']);
-Route::post('/getBooksFromSections', [DashboardController::class, 'getBooksFromSection']);
 Route::post('/getPassword', [TestController::class, 'generatePassword']);
+
+//auth endpoints
 Route::middleware('auth:api')->post('/addBook/', [DashboardController::class, 'addBook']);
 Route::middleware('auth:api')->post('/editBook/', [DashboardController::class, 'editBook']);
 Route::middleware('auth:api')->post('/removeBook/', [DashboardController::class, 'removeBook']);
 Route::middleware('auth:api')->get('/checkAdminRights/', [DashboardController::class, 'checkAdminRights']);
 Route::middleware('auth:api')->post('/addSection/', [DashboardController::class, 'addSection']);
+
+//no auth endpoints
+Route::get('/getSections', [DashboardController::class, 'getSections']);
+Route::get('/getAllBooks', [DashboardController::class, 'getAllBooks']);
+Route::post('/getBooksFromSections', [DashboardController::class, 'getBooksFromSection']);
 Route::post('/findBooks/', [DashboardController::class, 'findBooks']);

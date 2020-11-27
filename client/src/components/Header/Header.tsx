@@ -94,7 +94,6 @@ function Header(props: Header) {
                             name: '',
                             isAuth: false
                         });
-                        console.log(sessionStorage.getItem('name'));
                         sessionStorage.clear();
                     }}>
                         <p>LOGOUT</p>

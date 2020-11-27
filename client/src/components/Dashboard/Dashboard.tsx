@@ -31,8 +31,7 @@ function Dashboard(props: Dashboard) {
                        isAuth={props.isAuth}
                        setModal={(isHidden: boolean, type: string, payload: string) => props.setModal(isHidden, type, payload)}/>
         </div>
-    )
-        ;
+    );
 }
 
 export default Dashboard;
